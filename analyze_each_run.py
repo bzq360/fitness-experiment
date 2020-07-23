@@ -87,13 +87,18 @@ def analyze_file(f_name):
     save_df = pd.Series(
         [fitness, problem, m_seed, s_seed, num_fix, first_fix, num_better, portion_better, num_same, portion_same],
         index=main_df.columns)
-    # print(save_df)
+
     main_df = main_df.append(save_df, ignore_index=True)
 
 
-# main function
-if __name__ == '__main__':
+def analyze():
+    global src
     src = os.getcwd()
     analyze_all()
     os.chdir(src)
     main_df.to_csv('analysis.csv', encoding='utf-8', index=False)
+
+
+# main function
+if __name__ == '__main__':
+    analyze()

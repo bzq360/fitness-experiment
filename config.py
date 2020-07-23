@@ -27,7 +27,7 @@ edits = [
 # fitness function types
 fitness_types = [
     'original',
-    # 'decision',
+    'decision',
     # 'arjae',
     # 'checkpoint'
 ]
@@ -42,7 +42,7 @@ problems = [
     # 'is_valid_parenthesization',
     # 'knapsack',
     # 'levenshtein',
-    # 'lis',
+    'lis',
     # 'mergesort',
     # 'overflow',
     # 'next_permutation',

@@ -9,6 +9,9 @@ from config import population_size
 from config import edits
 from config import gin_dir
 
+# current directory, don't touch, will be set in runtime
+src = ''
+
 
 # construct command line for GIN
 def collect_all_fix_command():
@@ -67,10 +70,13 @@ def get_fix_command(fitness_type, problem, mutation_seed, selection_seed):
 
 
 def exec_all_fix():
+    global src
+    src = os.getcwd()
     commands = collect_all_fix_command()
     os.chdir(gin_dir)  # navigate to gin directory
     for command in commands:
         os.system(command)
+    os.chdir(src)
 
 
 # main function

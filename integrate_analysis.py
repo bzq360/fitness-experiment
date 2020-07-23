@@ -15,8 +15,8 @@ def compute_average():
     df['% better patches mean'] = df['% better patches mean'].astype(float).map("{:.2%}".format)
     df['% same patches mean'] = df['% same patches mean'].astype(float).map("{:.2%}".format)
     df.to_csv('average.csv', encoding='utf-8', index=False)
+    print('average computed')
 
 
 if __name__ == '__main__':
     compute_average()
-    print('average computed')
