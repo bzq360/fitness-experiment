@@ -11,6 +11,7 @@ population_size = 1
 seeds = [
     (123, 123),
     (777, 777),
+    (1000, 1000)
 ]
 
 # supported edit types

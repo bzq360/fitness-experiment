@@ -1,4 +1,5 @@
 import os
+import shutil
 
 from config import fitness_types
 from config import problems
@@ -31,6 +32,12 @@ def output_all_fix_command():
 
 # generate command line for one fix
 def get_fix_command(fitness_type, problem, mutation_seed, selection_seed):
+    path = os.getcwd()
+    path += '/results/'
+    if os.path.exists(path):
+        shutil.rmtree(path)
+    os.makedirs(path)
+
     java_class = ''
     if fitness_type == 'original':
         java_class = 'gin.util.GPFix'
@@ -48,7 +55,7 @@ def get_fix_command(fitness_type, problem, mutation_seed, selection_seed):
     command += '-gn ' + str(max_generations) + ' '
     command += '-in ' + str(population_size) + ' '
     command += '-m quixbugs/quixbugs_method_files/' + problem + '.csv '
-    command += '-o ' + 'results/' + fitness_type + '-' + problem + '-' + str(mutation_seed) + '-' + str(
+    command += '-o ' + path + fitness_type + '-' + problem + '-' + str(mutation_seed) + '-' + str(
         selection_seed) + '.csv '
     command += '-et '
     for edit in edits:
@@ -60,12 +67,12 @@ def get_fix_command(fitness_type, problem, mutation_seed, selection_seed):
 
 
 def exec_all_fix():
+    commands = collect_all_fix_command()
     os.chdir(gin_dir)  # navigate to gin directory
-    for command in collect_all_fix_command():
+    for command in commands:
         os.system(command)
 
 
 # main function
 if __name__ == '__main__':
     exec_all_fix()
-    # TODO: Copy all files into current folder

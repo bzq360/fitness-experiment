@@ -19,3 +19,4 @@ def compute_average():
 
 if __name__ == '__main__':
     compute_average()
+    print('average computed')

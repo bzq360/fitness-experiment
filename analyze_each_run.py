@@ -2,7 +2,6 @@ import os
 import pandas as pd
 import re
 
-from config import gin_dir
 
 main_df = pd.DataFrame(
     columns=['fitness type', 'problem name', 'mutation seed', 'selection seed', 'number of fixed patch',
@@ -12,10 +11,10 @@ main_df = pd.DataFrame(
 
 # analyze all files in results folder
 def analyze_all():
-    os.chdir(gin_dir + '\\results')
+    os.chdir(os.getcwd() + '/results')
     f_names = os.listdir()
     for f_name in f_names:
-        print(f_name)
+        print('analyzing ' + f_name)
         analyze_file(f_name)
 
 
