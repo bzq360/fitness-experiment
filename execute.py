@@ -1,65 +1,22 @@
 import os
 
-# gin project absolute path
-gin_dir = 'C:\\UCL\\IdeaProjects\\gin'
-
-# number of maximum generations
-max_generations = 3
-
-# population size
-population_size = 1
-
-# random seeds [mutation, mutant selection]
-seeds = [
-    (123, 123),
-    (777, 777),
-]
-
-# supported edit types
-edits = [
-    'STATEMENT',
-    'MATCHED_STATEMENT',
-    'MODIFY_STATEMENT',
-    # 'INSERT_STATEMENT',
-    # 'LINE'
-]
-
-# fitness function types
-fitness_types = [
-    'original',
-    'decision',
-    # 'arjae',
-    # 'checkpoint'
-]
-
-# benchmark problems
-problems = [
-    # 'depth_first_search',
-    # 'detect_cycle',
-    # 'find_in_sorted',
-    # 'get_factors',
-    # 'hanoi',
-    # 'is_valid_parenthesization',
-    # 'knapsack',
-    # 'levenshtein',
-    'lis',
-    # 'mergesort',
-    # 'overflow',
-    # 'next_permutation',
-    # 'powerset',
-    'quicksort',
-    # 'rpn_eval',
-    # 'shortest_path_lengths'
-]
+from config import fitness_types
+from config import problems
+from config import seeds
+from config import max_generations
+from config import population_size
+from config import edits
+from config import gin_dir
 
 
 # construct command line for GIN
-def get_all_fix_command():
+def collect_all_fix_command():
+    output_all_fix_command()
+    f = open('commands.txt', 'r')
+    lines = f.readlines()
     commands = []
-    for type in fitness_types:
-        for problem in problems:
-            for seed in seeds:
-                commands.append(get_fix_command(type, problem, seed[0], seed[1]))
+    for line in lines:
+        commands.append(line)
     return commands
 
 
@@ -78,7 +35,7 @@ def get_fix_command(fitness_type, problem, mutation_seed, selection_seed):
     if fitness_type == 'original':
         java_class = 'gin.util.GPFix'
     elif fitness_type == 'decision':
-        java_class = 'gin.util.GPNovel'
+        java_class = 'gin.util.GPNovelFix'
     elif fitness_type == 'arjae':
         java_class = 'gin.util.arjae'
     elif fitness_type == 'checkpoint':
@@ -91,7 +48,8 @@ def get_fix_command(fitness_type, problem, mutation_seed, selection_seed):
     command += '-gn ' + str(max_generations) + ' '
     command += '-in ' + str(population_size) + ' '
     command += '-m quixbugs/quixbugs_method_files/' + problem + '.csv '
-    command += '-o ' + 'results/' + fitness_type + '-' + problem + '-' + str(mutation_seed) + '-' + str(selection_seed) + '.csv '
+    command += '-o ' + 'results/' + fitness_type + '-' + problem + '-' + str(mutation_seed) + '-' + str(
+        selection_seed) + '.csv '
     command += '-et '
     for edit in edits:
         command += edit + ','
@@ -103,15 +61,11 @@ def get_fix_command(fitness_type, problem, mutation_seed, selection_seed):
 
 def exec_all_fix():
     os.chdir(gin_dir)  # navigate to gin directory
-    for command in get_all_fix_command():
+    for command in collect_all_fix_command():
         os.system(command)
 
 
-def analyze():
-    os.chdir(gin_dir + '\\results')
-    # print(os.listdir())
-
 # main function
 if __name__ == '__main__':
-    output_all_fix_command()
-    # print(os.listdir())
+    exec_all_fix()
+    # TODO: Copy all files into current folder
