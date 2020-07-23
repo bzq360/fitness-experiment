@@ -1,7 +1,13 @@
 import os
+import shutil
 import pandas as pd
 import re
 
+from config import gin_dir
+
+
+# current directory, don't touch, will be set in runtime
+src = ''
 
 main_df = pd.DataFrame(
     columns=['fitness type', 'problem name', 'mutation seed', 'selection seed', 'number of fixed patch',
@@ -11,11 +17,18 @@ main_df = pd.DataFrame(
 
 # analyze all files in results folder
 def analyze_all():
-    os.chdir(os.getcwd() + '/results')
+    # clean fixed patch folder
+    path = src + '/fixed_patches'
+    if os.path.exists(path):
+        shutil.rmtree(path)
+    os.makedirs(path)
+
+    # analyze each result patch file
+    os.chdir(src + '/results')
     f_names = os.listdir()
     for f_name in f_names:
         print('analyzing ' + f_name)
-        analyze_file(f_name)
+        analyze_file(src + '/results/' + f_name)
 
 
 # analyze file with input file name
@@ -35,7 +48,7 @@ def analyze_file(f_name):
     num_patch = len(df)
 
     # number of fixed patch
-    fix_df = df[df['AllTestsPassed']]  # TODO: output fixed patch to another file
+    fix_df = df[df['AllTestsPassed']]
     num_fix = len(fix_df)
 
     # number of evaluations to find the first fix; -1 if no fix is found
@@ -43,6 +56,22 @@ def analyze_file(f_name):
         first_fix = -1
     else:
         first_fix = fix_df.index.values[0]
+        # execute PatchAnalyser to get fixed patch
+        os.chdir(gin_dir)
+        cmd_prefix = 'java -cp build/gin.jar gin.PatchAnalyser ' + '-f quixbugs/faulty_programs/' + problem.upper() + '.java -p '
+        fix = 1
+        for patch in fix_df['Patch']:
+            cmd = cmd_prefix + "\"" + patch + "\""
+            os.system(cmd)
+            shutil.move(gin_dir + '/quixbugs/faulty_programs/' + problem.upper() + '.java.patched',
+                        src + '/fixed_patches')
+            os.rename(src + '/fixed_patches/' + problem.upper() + '.java.patched',
+                      src + '/fixed_patches/' + problem + '_' + fitness + '_' + m_seed + '_' + s_seed + '_' + str(
+                          fix) + '.txt')
+            f = open(src + '/fixed_patches/' + problem + '_' + fitness + '_' + m_seed + '_' + s_seed + '_' + str(
+                fix) + '_info.txt', 'w')
+            f.write(patch)
+            fix += 1
 
     # number/percentage of better fitness patches
     better_df = df[df['Fitness'] < init_fit_value]
@@ -64,7 +93,7 @@ def analyze_file(f_name):
 
 # main function
 if __name__ == '__main__':
-    path = os.getcwd()
+    src = os.getcwd()
     analyze_all()
-    os.chdir(path)
+    os.chdir(src)
     main_df.to_csv('analysis.csv', encoding='utf-8', index=False)

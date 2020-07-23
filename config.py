@@ -2,22 +2,23 @@
 gin_dir = 'C:\\UCL\\IdeaProjects\\gin'
 
 # number of maximum generations
-max_generations = 3
+max_generations = 1
 
 # population size
-population_size = 1
+population_size = 10
 
 # random seeds [mutation, mutant selection]
 seeds = [
-    (123, 123),
+    # (123, 123),
     (777, 777),
-    (1000, 1000)
+    # (1000, 1000),
+    (666, 666)
 ]
 
 # supported edit types
 edits = [
-    'STATEMENT',
-    'MATCHED_STATEMENT',
+    # 'STATEMENT',
+    # 'MATCHED_STATEMENT',
     'MODIFY_STATEMENT',
     # 'INSERT_STATEMENT',
     # 'LINE'
@@ -26,7 +27,7 @@ edits = [
 # fitness function types
 fitness_types = [
     'original',
-    'decision',
+    # 'decision',
     # 'arjae',
     # 'checkpoint'
 ]
@@ -41,7 +42,7 @@ problems = [
     # 'is_valid_parenthesization',
     # 'knapsack',
     # 'levenshtein',
-    'lis',
+    # 'lis',
     # 'mergesort',
     # 'overflow',
     # 'next_permutation',
