@@ -2,17 +2,16 @@ import os
 import shutil
 import pandas as pd
 import re
-
+from config import disable_patch_analyzer
 from config import gin_dir
-
 
 # current directory, don't touch, will be set in runtime
 src = ''
 
 main_df = pd.DataFrame(
-    columns=['fitness type', 'problem name', 'mutation seed', 'selection seed', 'number of fixed patch',
-             'number of evaluations to find first fixed patch', 'number of better patches', 'portion of better patches',
-             'number of equal patches', 'portion of equal patches'])
+    columns=['fitness type', 'problem name', 'evosuite', 'mutation seed', 'selection seed', 'number of fixed patch',
+             'number of evaluations to find first fixed patch', 'number of better patches', 'ratio of better patches',
+             'number of equal patches', 'ratio of equal patches'])
 
 
 # analyze all files in results folder
@@ -36,11 +35,13 @@ def analyze_file(f_name):
     global main_df
 
     # parse file name
-    info = re.findall("(\w+)-(\w+)-(\d+)-(\d+).csv", f_name)[0]
+    info = re.findall("(\w+)-(\w+)-(\d+)-(\d+)-(\w+).csv", f_name)[0]
     fitness = info[0]
     problem = info[1]
     m_seed = info[2]
     s_seed = info[3]
+    evosuite = info[4]
+    con_evo = (evosuite == 'e')
 
     # read file content
     df = pd.read_csv(f_name)
@@ -53,25 +54,27 @@ def analyze_file(f_name):
 
     # number of evaluations to find the first fix; -1 if no fix is found
     if num_fix == 0:
-        first_fix = -1
+        first_fix = 999999
     else:
         first_fix = fix_df.index.values[0]
-        # execute PatchAnalyser to get fixed patch
-        os.chdir(gin_dir)
-        cmd_prefix = 'java -cp build/gin.jar gin.PatchAnalyser ' + '-f quixbugs/faulty_programs/' + problem.upper() + '.java -p '
-        fix = 1
-        for patch in fix_df['Patch']:
-            cmd = cmd_prefix + "\"" + patch + "\""
-            os.system(cmd)
-            shutil.move(gin_dir + '/quixbugs/faulty_programs/' + problem.upper() + '.java.patched',
-                        src + '/fixed_patches')
-            os.rename(src + '/fixed_patches/' + problem.upper() + '.java.patched',
-                      src + '/fixed_patches/' + problem + '_' + fitness + '_' + m_seed + '_' + s_seed + '_' + str(
-                          fix) + '.txt')
-            f = open(src + '/fixed_patches/' + problem + '_' + fitness + '_' + m_seed + '_' + s_seed + '_' + str(
-                fix) + '_info.txt', 'w')
-            f.write(patch)
-            fix += 1
+        if not disable_patch_analyzer:
+            # execute PatchAnalyser to get fixed patch
+            os.chdir(gin_dir)
+            cmd_prefix = 'java -cp build/gin.jar gin.PatchAnalyser ' + '-f quixbugs/faulty_programs/' + problem.upper() + '.java -p '
+            fix = 1
+            for patch in fix_df['Patch']:
+                cmd = cmd_prefix + "\"" + patch + "\""
+                os.system(cmd)
+                shutil.move(gin_dir + '/quixbugs/faulty_programs/' + problem.upper() + '.java.patched',
+                            src + '/fixed_patches')
+                new_fn = src + '/fixed_patches/' + problem + '_' + fitness + '_' + m_seed + '_' + s_seed + '_' + evosuite + '_' + str(
+                    fix) + '.txt'
+                info_name = src + '/fixed_patches/' + problem + '_' + fitness + '_' + m_seed + '_' + s_seed + '_' + evosuite + '_' + str(
+                    fix) + '_info.txt'
+                os.rename(src + '/fixed_patches/' + problem.upper() + '.java.patched', new_fn)
+                f = open(info_name, 'w')
+                f.write(patch)
+                fix += 1
 
     # number/percentage of better fitness patches
     better_df = df[df['Fitness'] < init_fit_value]
@@ -85,7 +88,8 @@ def analyze_file(f_name):
 
     # save on main df
     save_df = pd.Series(
-        [fitness, problem, m_seed, s_seed, num_fix, first_fix, num_better, portion_better, num_same, portion_same],
+        [fitness, problem, con_evo, m_seed, s_seed, num_fix, first_fix, num_better, portion_better, num_same,
+         portion_same],
         index=main_df.columns)
 
     main_df = main_df.append(save_df, ignore_index=True)
