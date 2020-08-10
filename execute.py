@@ -4,12 +4,16 @@ import shutil
 from config import fitness_types
 from config import problems
 from config import create_seed
-from config import max_generations
+from config import generations
 from config import population_size
 from config import edits
 from config import gin_dir
 from config import timeout
 from config import contain_evosuite
+from config import gp_logging_level
+from config import run_in_new_process
+from config import run_in_sub_process
+from config import output_logs_if_checkpoint
 
 # current directory, don't touch, will be set in runtime
 src = ''
@@ -54,13 +58,14 @@ def get_fix_command(fitness_type, problem, mutation_seed, selection_seed, evosui
     elif fitness_type == 'arjae':
         java_class = 'gin.util.GPArjaEFix'
     elif fitness_type == 'checkpoint':
-        java_class = 'gin.util.checkpoint'
+        java_class = 'gin.util.GPCheckpointFix'
 
-    command = ''
-    command += 'java -cp build/gin.jar '
+    command = 'java '
+    command += '-Dtinylog.level=' + gp_logging_level[0] + ' '
+    command += '-cp build/gin.jar '
     command += java_class + ' '
     command += '-d quixbugs -c quixbugs '
-    command += '-gn ' + str(max_generations) + ' '
+    command += '-gn ' + str(generations) + ' '
     command += '-in ' + str(population_size) + ' '
     if evosuite:
         command += '-m quixbugs/quixbugs_method_files/' + problem + '-evosuite.csv '
@@ -76,9 +81,15 @@ def get_fix_command(fitness_type, problem, mutation_seed, selection_seed, evosui
     command = command[:-1]
     command += ' '
     command += '-ms ' + str(mutation_seed) + ' -is ' + str(selection_seed) + ' '
-    command += '-x ' + str(timeout)
+    command += '-x ' + str(timeout) + ' '
+    if run_in_new_process:
+        command += '-j true '
+    if run_in_sub_process:
+        command += '-J true '
+    if fitness_type == 'checkpoint':
+        command += '-M quixbugs/quixbugs_method_files/' + problem + '_correct.csv -C ' + str(output_logs_if_checkpoint)
     return command
-
+# -M quixbugs\quixbugs_method_files\lis_correct.csv -C false
 
 def exec_all_fix():
     global src
@@ -88,7 +99,9 @@ def exec_all_fix():
     commands = collect_all_fix_command()
     os.chdir(gin_dir)  # navigate to gin directory
     for command in commands:
+        print('process start: ' + command)
         os.system(command)
+        print('process finish: ' + command)
     os.chdir(src)
 
 

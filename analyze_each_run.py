@@ -4,6 +4,10 @@ import pandas as pd
 import re
 from config import disable_patch_analyzer
 from config import gin_dir
+from config import pn_logging_level
+from config import generations
+from config import population_size
+from config import output_logs_if_checkpoint
 
 # current directory, don't touch, will be set in runtime
 src = ''
@@ -54,13 +58,14 @@ def analyze_file(f_name):
 
     # number of evaluations to find the first fix; -1 if no fix is found
     if num_fix == 0:
-        first_fix = 999999
+        first_fix = generations * population_size + 1
     else:
         first_fix = fix_df.index.values[0]
         if not disable_patch_analyzer:
             # execute PatchAnalyser to get fixed patch
             os.chdir(gin_dir)
-            cmd_prefix = 'java -cp build/gin.jar gin.PatchAnalyser ' + '-f quixbugs/faulty_programs/' + problem.upper() + '.java -p '
+            cmd_prefix = 'java -Dtinylog.level=' + pn_logging_level[0]
+            cmd_prefix += ' -cp build/gin.jar gin.PatchAnalyser ' + '-f quixbugs/faulty_programs/' + problem.upper() + '.java -p '
             fix = 1
             for patch in fix_df['Patch']:
                 cmd = cmd_prefix + "\"" + patch + "\""
@@ -77,7 +82,7 @@ def analyze_file(f_name):
                 fix += 1
 
     # number/percentage of better fitness patches
-    better_df = df[df['Fitness'] < init_fit_value]
+    better_df = df[df['Fitness'] > init_fit_value]
     num_better = len(better_df)
     portion_better = num_better / num_patch
 
