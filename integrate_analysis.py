@@ -6,12 +6,13 @@ def compute_average():
     df = df.groupby(['problem name', 'fitness type', 'evosuite'], as_index=False) \
         .agg({'number of fixed patch': ['mean'],
               'number of evaluations to find first fixed patch': ['min'],
+              'minimum number of edits to find a fix': ['min'],
               'number of better patches': ['mean'],
               'ratio of better patches': ['mean'],
               'number of equal patches': ['mean'],
               'ratio of equal patches': ['mean']})
     df.columns = df.columns.droplevel(level=0)
-    df.columns = ['problem', 'fitness type', 'evosuite', 'number of fixed patches found', 'number of evaluations to find first fixed patch', 'number of better fitness patches', 'ratio of better fitness patches', 'number of same fitness patches', 'ratio of same fitness patches']
+    df.columns = ['problem', 'fitness type', 'evosuite', 'number of fixed patches found', 'number of evaluations to find first fixed patch', 'minimum number of edits to find a fix', 'number of better fitness patches', 'ratio of better fitness patches', 'number of same fitness patches', 'ratio of same fitness patches']
     # float to percentage
     df['ratio of better fitness patches'] = df['ratio of better fitness patches'].astype(float).map("{:.2%}".format)
     df['ratio of same fitness patches'] = df['ratio of same fitness patches'].astype(float).map("{:.2%}".format)

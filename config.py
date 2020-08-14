@@ -18,12 +18,9 @@ pn_logging_level = [
     'error'
 ]
 
-# TODO: tru running slow problems with separate JVM
 run_in_new_process = False
 
 run_in_sub_process = False
-
-# TODO: patch size
 
 # disable patch analyzer for fixed patches found
 disable_patch_analyzer = False
@@ -38,7 +35,7 @@ contain_evosuite = [
 gin_dir = 'C:\\UCL\\IdeaProjects\\gin'
 
 # number of maximum generations
-generations = 10
+generations = 20
 
 # population size
 population_size = 40
@@ -52,7 +49,7 @@ seeds = [
 ]
 
 # fully random on seeds (overwrite above seeds)
-num_run = 20
+num_run = 1
 
 # maximum time on running a test case
 timeout = 1000
@@ -69,33 +66,32 @@ edits = [
 # fitness function types
 fitness_types = [
     'original',
-    'decision',
-    'arjae',
+    # 'decision',
+    # 'arjae',
     # 'checkpoint' # not supported
 ]
 
-output_logs_if_checkpoint = False
 
 # benchmark problems (15 in total)
 # (problem name, )
 problems = [
-    # 'depth_first_search', # 40
-    # 'detect_cycle',  # slow
-    # 'find_in_sorted',
-    # 'get_factors',
-    # # 'hanoi',  # not supported
-    # 'is_valid_parenthesization',
-    # 'knapsack', # slow
-    # 'levenshtein',
-    'lis',
-    # 'mergesort',
-    # # 'overflow', # slow
-    # 'next_permutation',
-    # 'powerset',
-    # # 'quicksort', # slow
-    # 'rpn_eval', # too many fixed patches
-    # 'shortest_path_lengths' # not supported
-    #########################################
+    'depth_first_search', # 79
+    'detect_cycle',  # 350
+    'find_in_sorted', # 117
+    'get_factors', # 126
+    # 'hanoi',  # wrong method file
+    'is_valid_parenthesization', # 91
+    'knapsack', # 417
+    'levenshtein', # 183
+    'lis', #69
+    'mergesort', # 185
+    # 'overflow', # wrong method file
+    'next_permutation', # 72
+    'powerset', # 73
+    'quicksort', # 2571 , found 50 identical fixes
+    'rpn_eval', # 96, too many fixed patches
+    # 'shortest_path_lengths' # wrong method file
+    ################ unrelated problems #################
     # 'bitcount',
     # 'to_base',
     # 'max_sublist_sum',

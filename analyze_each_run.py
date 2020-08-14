@@ -7,14 +7,14 @@ from config import gin_dir
 from config import pn_logging_level
 from config import generations
 from config import population_size
-from config import output_logs_if_checkpoint
 
 # current directory, don't touch, will be set in runtime
 src = ''
 
 main_df = pd.DataFrame(
     columns=['fitness type', 'problem name', 'evosuite', 'mutation seed', 'selection seed', 'number of fixed patch',
-             'number of evaluations to find first fixed patch', 'number of better patches', 'ratio of better patches',
+             'number of evaluations to find first fixed patch', 'minimum number of edits to find a fix',
+             'number of better patches', 'ratio of better patches',
              'number of equal patches', 'ratio of equal patches'])
 
 
@@ -56,13 +56,18 @@ def analyze_file(f_name):
     fix_df = df[df['AllTestsPassed']]
     num_fix = len(fix_df)
 
+    min_edits = 999
     # number of evaluations to find the first fix; -1 if no fix is found
     if num_fix == 0:
         first_fix = generations * population_size + 1
     else:
         first_fix = fix_df.index.values[0]
+        # number of edits of each fix
+        for patch in fix_df['Patch']:
+            num_edits = patch.count('|') - 1
+            min_edits = min(min_edits, num_edits)
+        # execute PatchAnalyser to get fixed patch
         if not disable_patch_analyzer:
-            # execute PatchAnalyser to get fixed patch
             os.chdir(gin_dir)
             cmd_prefix = 'java -Dtinylog.level=' + pn_logging_level[0]
             cmd_prefix += ' -cp build/gin.jar gin.PatchAnalyser ' + '-f quixbugs/faulty_programs/' + problem.upper() + '.java -p '
@@ -93,7 +98,7 @@ def analyze_file(f_name):
 
     # save on main df
     save_df = pd.Series(
-        [fitness, problem, con_evo, m_seed, s_seed, num_fix, first_fix, num_better, portion_better, num_same,
+        [fitness, problem, con_evo, m_seed, s_seed, num_fix, first_fix, min_edits, num_better, portion_better, num_same,
          portion_same],
         index=main_df.columns)
 

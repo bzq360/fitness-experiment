@@ -13,7 +13,6 @@ from config import contain_evosuite
 from config import gp_logging_level
 from config import run_in_new_process
 from config import run_in_sub_process
-from config import output_logs_if_checkpoint
 
 # current directory, don't touch, will be set in runtime
 src = ''
@@ -87,9 +86,9 @@ def get_fix_command(fitness_type, problem, mutation_seed, selection_seed, evosui
     if run_in_sub_process:
         command += '-J true '
     if fitness_type == 'checkpoint':
-        command += '-M quixbugs/quixbugs_method_files/' + problem + '_correct.csv -C ' + str(output_logs_if_checkpoint)
+        command += '-M quixbugs/quixbugs_method_files/' + problem + '_correct.csv'
     return command
-# -M quixbugs\quixbugs_method_files\lis_correct.csv -C false
+
 
 def exec_all_fix():
     global src
