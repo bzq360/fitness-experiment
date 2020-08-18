@@ -13,6 +13,7 @@ from config import contain_evosuite
 from config import gp_logging_level
 from config import run_in_new_process
 from config import run_in_sub_process
+from config import record_patch
 
 # current directory, don't touch, will be set in runtime
 src = ''
@@ -81,6 +82,8 @@ def get_fix_command(fitness_type, problem, mutation_seed, selection_seed, evosui
     command += ' '
     command += '-ms ' + str(mutation_seed) + ' -is ' + str(selection_seed) + ' '
     command += '-x ' + str(timeout) + ' '
+    if record_patch:
+        command += '-rec true '
     if run_in_new_process:
         command += '-j true '
     if run_in_sub_process:
