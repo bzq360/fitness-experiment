@@ -11,8 +11,8 @@ def compute_average():
     df = df.groupby(['problem name', 'fitness type', 'run with evosuite'], as_index=False) \
         .agg({'number of fixed patch': ['mean'],
               'number of fixed patch passed evosuite': ['mean'],
-              'number of evaluations to find first fixed patch': ['min'],  # hard to measure as it can be meaningless
-              'minimum number of edits to find a fix': ['min'],  # hard to measure as it can be meaningless
+              'number of evaluations to find first fixed patch': ['min'],  # meaningless when no fixed patch found
+              'minimum number of edits to find a fix': ['min'],  # meaningless when no fixed patch found
               'number of better patches': ['mean'],
               'ratio of better patches': ['mean'],
               'number of equal patches': ['mean'],
@@ -31,6 +31,7 @@ def compute_average():
     df['number of better fitness patches'] = df['number of better fitness patches'].map('{:.2f}'.format)
     df['number of same fitness patches'] = df['number of same fitness patches'].map('{:.2f}'.format)
     df.to_csv('{}/average.csv'.format(base), encoding='utf-8', index=False)
+
     print('average.csv saved to {}'.format(base))
 
 

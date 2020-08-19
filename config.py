@@ -7,9 +7,9 @@ timestamp = '1'
 # gin project absolute path
 gin_dir = 'C:\\UCL\\IdeaProjects\\gin'
 
-generations = 10
+generations = 1
 
-population_size = 40
+population_size = 4
 
 # run with evosuite generated test cases
 evosuite_included = [
@@ -57,12 +57,12 @@ problems = [
     # 'is_valid_parenthesization', # 91
     # 'knapsack', # 417
     # 'levenshtein', # 183
-    # 'lis',  # 69
+    'lis',  # 69
     # 'mergesort', # 185
     # 'next_permutation', # 72
     # 'powerset', # 73
     # 'quicksort', # 2571 , found 50 identical fixes
-    'rpn_eval', # 96, too many fixed patches
+    # 'rpn_eval', # 96, too many fixed patches
     # 'shortest_path_lengths' # wrong method file
     # 'sieve'
     # 'wrap' # slow
@@ -78,9 +78,9 @@ problems = [
 gp_log = [
     # 'trace',
     # 'debug',
-    'info',
+    # 'info',
     # 'warning',
-    # 'error'
+    'error'
 ]
 
 # patch analyzer logging level
@@ -98,7 +98,7 @@ record_patch = True
 
 # enable patch analyzer for test-suite-adequate patches
 # it is slow on RPN_EVAL because there are too many identical patches
-patch_analyzer = False
+analyze_patch = True
 
 
 # return default seeds or generate random seeds

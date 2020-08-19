@@ -5,7 +5,7 @@ import subprocess
 import pandas as pd
 import re
 from config import patch_analyser_log
-from config import patch_analyzer
+from config import analyze_patch
 from config import get_timestamp
 
 df_analysis = pd.DataFrame(
@@ -61,7 +61,7 @@ def analyze_file(f_name):
             num_edits = patch.count('|') - 1
             min_edits = min(min_edits, num_edits)
         # execute PatchAnalyser to get fixed patch
-        if patch_analyzer:
+        if analyze_patch:
             # file that save analyze cmds
             f = open('{}/patch_analyser_cmds.txt'.format(base), 'w')
             # create folder for fixed patch

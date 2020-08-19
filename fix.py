@@ -19,11 +19,14 @@ from pathlib import Path
 # file that contains all fix cmds
 fix_cmds = 'gin_fix_cmds.txt'
 
+# base directory of results
+base = 'PLACEHOLDER'
+
 
 # generate fix cmds and write into a file
 def write_fix_cmds():
     global fix_cmds
-    fix_cmds = 'output/{timestamp}/{filename}'.format(timestamp=get_timestamp(), filename=fix_cmds)
+    fix_cmds = '{base}/{filename}'.format(base=base, filename=fix_cmds)
     f = open(fix_cmds, "w")
     for fit_type in fitness_types:
         for problem in problems:
@@ -96,26 +99,26 @@ def read_fix_cmds():
 
 # run fix cmds
 def run_fix_cmds():
+    global base
+    base = 'output/{}'.format(get_timestamp())
     # create and overwrite result directory
-    result_dir = 'output/{}/results'.format(get_timestamp())
+    result_dir = '{}/results'.format(base)
     if os.path.exists(result_dir):
         shutil.rmtree(result_dir)
     Path(result_dir).mkdir(parents=True)
-
     # generate and log fix cmds
     write_fix_cmds()
-
-    # TODO: How to log the time of a run?
     # read and run fix cmds
     fix_cmds = read_fix_cmds()
+    # save run time
+    f = open('{}/time.txt'.format(base), 'w')
     for cmd in fix_cmds:
         t_start = perf_counter()
-        print('£ process start: ' + cmd)
+        print(cmd)
         os.system(cmd)
         t_end = perf_counter()
         duration = t_end - t_start
-        print('£ process finish: ' + cmd)
-        print('£ time elapsed: ' + str(duration) + '\n' + '#' * 300 + '\n')
+        f.write(cmd + 'time elapsed: ' + str(duration) + '\n')
 
 
 # main function
