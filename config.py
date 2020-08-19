@@ -1,63 +1,36 @@
 import random
+from datetime import datetime
 
-# gp search logging level
-gp_logging_level = [
-    # 'trace',
-    # 'debug',
-    'info',
-    # 'warning',
-    # 'error'
-]
-
-# patch analyzer logging level
-pn_logging_level = [
-    # 'trace',
-    # 'debug',
-    # 'info',
-    # 'warning',
-    'error'
-]
-
-record_patch = True
-
-run_in_new_process = False
-
-run_in_sub_process = False
-
-# disable patch analyzer for fixed patches found
-# it will be slow on RPN_EVAL since there are too many identical patches
-disable_patch_analyzer = False
-
-# run with evosuite generated test cases
-contain_evosuite = [
-    False,
-    True
-]
+# if set to 'now', it will be current time
+timestamp = '1'
 
 # gin project absolute path
 gin_dir = 'C:\\UCL\\IdeaProjects\\gin'
 
-# number of maximum generations
 generations = 10
 
-# population size
 population_size = 40
 
-# random seeds [mutation, mutant selection]
-seeds = [
-    # (111, 111),
-    # (753, 753),
-    # (1024, 1024),
-    # (666, 666)
+# run with evosuite generated test cases
+evosuite_included = [
+    False,
+    True
 ]
 
-# fully random on seeds (overwrite above seeds)
-num_run = 1
+# fully random on seeds (overwrite below seeds)
+repeat = 2
 
-# maximum time on running a test case
+# random seeds [mutation, mutant selection]
+default_seeds = [
+    (111, 111),
+    # (753, 753),
+    # (1024, 1024),
+]
+
+# maximum time(ms) on running a test case
 timeout = 1000
 
-# supported edit types
+# GIN edit types
 edits = [
     'STATEMENT',
     # 'MATCHED_STATEMENT',
@@ -69,13 +42,12 @@ edits = [
 # fitness function types
 fitness_types = [
     'original',
-    'decision',
-    'arjae',
+    # 'decision',
+    # 'arjae',
     # 'checkpoint' # only support LIS
 ]
 
 # benchmark problems (17 in total, 2 have wrong method files)
-# (problem name, )
 problems = [
     # 'depth_first_search', # 79
     # 'detect_cycle',  # 350
@@ -85,12 +57,12 @@ problems = [
     # 'is_valid_parenthesization', # 91
     # 'knapsack', # 417
     # 'levenshtein', # 183
-    'lis', #69
+    # 'lis',  # 69
     # 'mergesort', # 185
     # 'next_permutation', # 72
     # 'powerset', # 73
     # 'quicksort', # 2571 , found 50 identical fixes
-    # 'rpn_eval', # 96, too many fixed patches
+    'rpn_eval', # 96, too many fixed patches
     # 'shortest_path_lengths' # wrong method file
     # 'sieve'
     # 'wrap' # slow
@@ -102,15 +74,50 @@ problems = [
     # 'sqrt'
 ]
 
+# gp search logging level
+gp_log = [
+    # 'trace',
+    # 'debug',
+    'info',
+    # 'warning',
+    # 'error'
+]
 
-def create_seed():
-    global seeds
-    if num_run > 0:
-        seeds = []
-        for i in range(num_run):
-            seeds.append((random.randint(1, 1000000), random.randint(1, 1000000)))
+# patch analyzer logging level
+# must set be info to read the output of analysis
+patch_analyser_log = [
+    # 'trace',
+    # 'debug',
+    'info',
+    # 'warning',
+    # 'error'
+]
+
+# gin config: enable history patch records
+record_patch = True
+
+# enable patch analyzer for test-suite-adequate patches
+# it is slow on RPN_EVAL because there are too many identical patches
+patch_analyzer = False
+
+
+# return default seeds or generate random seeds
+def get_seeds():
+    global default_seeds
+    # no repeat, use default seeds
+    if repeat == 0:
+        return default_seeds
+    # create random seeds
+    seeds = []
+    for i in range(repeat):
+        seeds.append((random.randint(1, 1000000), random.randint(1, 1000000)))
     return seeds
 
 
-if __name__ == '__main__':
-    create_seed()
+# return timestamp of the current experiment
+def get_timestamp():
+    global timestamp
+    if timestamp == "now":
+        timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    return timestamp
+
