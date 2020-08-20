@@ -4,14 +4,14 @@ import fix
 import integrate
 from time import perf_counter
 
-# 1. setup resources
+# 0. setup resources (comment it if keep resource the same)
 setup.copy_resources()
 
-# 2. execute
+# 1. execute
 fix.run_fix_cmds()
 
-# 3. analyze data
+# 2. analyze data
 analyze.analyze()
 
-# 4. compute average value of data
+# 3. compute average value of data
 integrate.compute_average()

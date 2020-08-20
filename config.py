@@ -2,14 +2,14 @@ import random
 from datetime import datetime
 
 # if set to 'now', it will be current time
-timestamp = '1'
+timestamp = 'now'
 
 # gin project absolute path
-gin_dir = 'C:\\UCL\\IdeaProjects\\gin'
+gin_dir = 'CHANGE_THIS_IF_NECESSARY'
 
-generations = 1
+generations = 10
 
-population_size = 4
+population_size = 40
 
 # run with evosuite generated test cases
 evosuite_included = [
@@ -18,7 +18,7 @@ evosuite_included = [
 ]
 
 # fully random on seeds (overwrite below seeds)
-repeat = 2
+repeat = 3
 
 # random seeds [mutation, mutant selection]
 default_seeds = [
@@ -62,8 +62,8 @@ problems = [
     # 'next_permutation', # 72
     # 'powerset', # 73
     # 'quicksort', # 2571 , found 50 identical fixes
-    # 'rpn_eval', # 96, too many fixed patches
-    # 'shortest_path_lengths' # wrong method file
+    'rpn_eval', # 96, too many fixed patches
+    # 'shortest_path_lengths'
     # 'sieve'
     # 'wrap' # slow
     ################ unrelated problems #################

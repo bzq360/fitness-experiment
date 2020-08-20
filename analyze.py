@@ -66,9 +66,8 @@ def analyze_file(f_name):
             f = open('{}/patch_analyser_cmds.txt'.format(base), 'w')
             # create folder for fixed patch
             path = '{}/fixed_patches'.format(base)
-            if os.path.exists(path):
-                shutil.rmtree(path)
-            os.makedirs(path)
+            if not os.path.exists(path):
+                os.makedirs(path)
             # analyze each fixed patch
             count = 0
             for patch in fix_df['Patch']:
@@ -138,6 +137,10 @@ def analyze_file(f_name):
 
 # analyze all files in results folder
 def analyze_results():
+    # create fixed patch directory
+    path = '{}/fixed_patches'.format(base)
+    if os.path.exists(path):
+        shutil.rmtree(path)
     # analyze each result patch file
     f_names = os.listdir('{}/results'.format(base))
     for f_name in f_names:
