@@ -15,7 +15,8 @@ df_analysis = pd.DataFrame(
              'mutation seed',
              'selection seed',
              'number of fixed patch',
-             'number of fixed patch passed evosuite',
+             'number of unique fixed patch',
+             'number of unique fixed patch passed evosuite',
              'number of evaluations to find first fixed patch',
              'minimum number of edits to find a fix',
              'number of better patches',
@@ -52,6 +53,7 @@ def analyze_file(f_name):
     # number of evaluations to find the first fix; -1 if no fix is found
     min_edits = 999999
     num_fix_evo = 0
+    edit_dict = {}
     if num_fix == 0:
         first_fix = 999999
     else:
@@ -68,20 +70,28 @@ def analyze_file(f_name):
             path = '{}/fixed_patches'.format(base)
             if not os.path.exists(path):
                 os.makedirs(path)
-            # analyze each fixed patch
+            # remove duplicate
             count = 0
             for patch in fix_df['Patch']:
                 count += 1
-                id = '{fitness}-{problem}-{mut}-{sel}-{count}.java'.format(
+                if patch in edit_dict:
+                    edit_dict[patch] += 1
+                else:
+                    edit_dict[patch] = 1
+            # analyze each fixed patch
+            i = 0
+            for edit in edit_dict.keys():
+                i += 1
+                id = '{fitness}-{problem}-{mut}-{sel}-{i}.java'.format(
                     fitness=fitness,
                     problem=problem,
                     mut=m_seed,
                     sel=s_seed,
-                    count=count)
+                    i=i)
                 cmd = 'java -Dtinylog.level={log} -cp gin.jar gin.PatchAnalyser -f quixbugs/faulty_programs/{problem}.java -c {class_name} -t {test_class_name} -cp {classpath} -d {project} -p "{edits}" -b {base} -id {id}'.format(
                     log=patch_analyser_log[0],
                     problem=problem.upper(),
-                    edits=patch,
+                    edits=edit,
                     base=path,
                     id=id,
                     class_name='faulty_programs.{}'.format(problem.upper()),
@@ -94,7 +104,7 @@ def analyze_file(f_name):
                 f.flush()
                 result = subprocess.check_output(cmd, shell=True)
                 # look for all test successful meesage
-                if re.search(b'All tests successful: true', result) is not None:
+                if re.search(b'true', result) is not None:
                     num_fix_evo += 1  # valid
                     valid = 'passed'
                 else:
@@ -107,12 +117,9 @@ def analyze_file(f_name):
                     problem=problem,
                     mut=m_seed,
                     sel=s_seed,
-                    count=count,
+                    count=i,
                     valid=valid)
                 os.rename('{}/{}'.format(path, id), new_file_name)
-                # remove unwanted files (.blocks/.original)
-                if os.path.exists('{}/quixbugs'.format(path)):
-                    shutil.rmtree('{}/quixbugs'.format(path))
 
     # number/percentage of better fitness patches
     better_df = df[df['Fitness'] > init_fit_value]
@@ -124,9 +131,13 @@ def analyze_file(f_name):
     num_same = len(same_df)
     portion_same = num_same / num_patch
 
+    num_fix_unique = len(edit_dict)
+
     # save on main df
     save_df = pd.Series(
-        [fitness, problem, with_evosuite, m_seed, s_seed, num_fix, num_fix_evo, first_fix, min_edits, num_better,
+        [fitness, problem, with_evosuite, m_seed, s_seed, num_fix, num_fix_unique, num_fix_evo,
+         first_fix, min_edits,
+         num_better,
          portion_better,
          num_same,
          portion_same],

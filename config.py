@@ -2,10 +2,10 @@ import random
 from datetime import datetime
 
 # if set to 'now', it will be current time
-timestamp = 'now'
+timestamp = 'all'
 
 # gin project absolute path
-gin_dir = 'CHANGE_THIS_IF_NECESSARY'
+gin_dir = 'C:\\UCL\\IdeaProjects\\gin'
 
 generations = 10
 
@@ -14,7 +14,7 @@ population_size = 40
 # run with evosuite generated test cases
 evosuite_included = [
     False,
-    True
+    # True
 ]
 
 # fully random on seeds (overwrite below seeds)
@@ -49,19 +49,19 @@ fitness_types = [
 
 # benchmark problems (17 in total, 2 have wrong method files)
 problems = [
-    # 'depth_first_search', # 79
-    # 'detect_cycle',  # 350
-    # 'find_in_sorted', # 117
-    # 'get_factors', # 126
+    'depth_first_search', # 79
+    'detect_cycle',  # 350
+    'find_in_sorted', # 117
+    'get_factors', # 126
     # 'hanoi',  # wrong method file
-    # 'is_valid_parenthesization', # 91
-    # 'knapsack', # 417
-    # 'levenshtein', # 183
+    'is_valid_parenthesization', # 91
+    'knapsack', # 417
+    'levenshtein', # 183
     'lis',  # 69
-    # 'mergesort', # 185
-    # 'next_permutation', # 72
-    # 'powerset', # 73
-    # 'quicksort', # 2571 , found 50 identical fixes
+    'mergesort', # 185
+    'next_permutation', # 72
+    'powerset', # 73
+    'quicksort', # 2571 , found 50 identical fixes
     'rpn_eval', # 96, too many fixed patches
     # 'shortest_path_lengths'
     # 'sieve'
