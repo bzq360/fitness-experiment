@@ -2,7 +2,9 @@ import random
 from datetime import datetime
 
 # if set to 'now', it will be current time
-timestamp = 'all'
+timestamp = 'get_factors'
+# timestamp = 'hanoi'
+# timestamp = 'shpl'
 
 # gin project absolute path
 gin_dir = 'C:\\UCL\\IdeaProjects\\gin'
@@ -18,7 +20,7 @@ evosuite_included = [
 ]
 
 # fully random on seeds (overwrite below seeds)
-repeat = 3
+repeat = 20
 
 # random seeds [mutation, mutant selection]
 default_seeds = [
@@ -42,27 +44,27 @@ edits = [
 # fitness function types
 fitness_types = [
     'original',
-    # 'decision',
-    # 'arjae',
+    'decision',
+    'arjae',
     # 'checkpoint' # only support LIS
 ]
 
 # benchmark problems (17 in total, 2 have wrong method files)
 problems = [
-    'depth_first_search', # 79
-    'detect_cycle',  # 350
-    'find_in_sorted', # 117
+    # 'depth_first_search', # 79
+    # 'detect_cycle',  # 350
+    # 'find_in_sorted', # 117
     'get_factors', # 126
     # 'hanoi',  # wrong method file
-    'is_valid_parenthesization', # 91
-    'knapsack', # 417
-    'levenshtein', # 183
-    'lis',  # 69
-    'mergesort', # 185
-    'next_permutation', # 72
-    'powerset', # 73
-    'quicksort', # 2571 , found 50 identical fixes
-    'rpn_eval', # 96, too many fixed patches
+    # 'is_valid_parenthesization', # 91
+    # 'knapsack', # 417
+    # 'levenshtein', # 183
+    # 'lis',  # 69
+    # 'mergesort', # 185
+    # 'next_permutation', # 72
+    # 'powerset', # 73
+    # 'quicksort', # 2571 , found 50 identical fixes
+    # 'rpn_eval', # 96, too many fixed patches
     # 'shortest_path_lengths'
     # 'sieve'
     # 'wrap' # slow

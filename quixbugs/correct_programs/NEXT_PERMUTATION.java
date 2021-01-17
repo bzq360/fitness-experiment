@@ -1,16 +1,7 @@
 package correct_programs;
 
 import java.util.ArrayList;
-//import com.google.guava.Lists;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * @author derricklin
- */
 public class NEXT_PERMUTATION {
     public static ArrayList<Integer> next_permutation(ArrayList<Integer> perm) {
         for (int i = perm.size() - 2; i != -1; i--) {

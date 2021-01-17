@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class LEVENSHTEIN_TEST {
+public class  LEVENSHTEIN_TEST {
     @org.junit.Test(timeout = 3000)
     public void test_0() throws Exception {
         int result = LEVENSHTEIN.levenshtein((String)"electron",(String)"neutron");
