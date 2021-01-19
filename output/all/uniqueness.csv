@@ -1,0 +1,26 @@
+,program,fitness function,count,unique,rate_unique
+0,detect_cycle,arjae,35,23,65.71%
+1,detect_cycle,decision,48,36,75.00%
+2,detect_cycle,original,153,123,80.39%
+3,get_factors,arjae,392,388,98.98%
+4,get_factors,decision,341,335,98.24%
+5,get_factors,original,239,236,98.74%
+6,is_valid_parenthesization,original,91,91,100.00%
+7,knapsack,arjae,72,65,90.28%
+8,knapsack,decision,99,87,87.88%
+9,knapsack,original,89,79,88.76%
+10,levenshtein,arjae,488,404,82.79%
+11,levenshtein,decision,1003,827,82.45%
+12,levenshtein,original,729,630,86.42%
+13,lis,arjae,63,60,95.24%
+14,lis,original,118,112,94.92%
+15,mergesort,original,1,1,100.00%
+16,next_permutation,arjae,366,351,95.90%
+17,next_permutation,decision,748,739,98.80%
+18,next_permutation,original,452,439,97.12%
+19,quicksort,arjae,1894,1292,68.22%
+20,quicksort,decision,1870,1249,66.79%
+21,quicksort,original,1822,1300,71.35%
+22,rpn_eval,arjae,737,530,71.91%
+23,rpn_eval,decision,285,214,75.09%
+24,rpn_eval,original,596,427,71.64%

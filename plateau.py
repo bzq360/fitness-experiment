@@ -21,4 +21,4 @@ x.columns = ['program', 'fitness function', 'mean', 'std']
 x['mean'] = x['mean'].astype(float).map("{:.2%}".format)
 x['std'] = x['std'].astype(float).map("{:.2%}".format)
 
-df.to_csv('{}/{}'.format(base, 'plateaus.csv'))
+x.to_csv('{}/{}'.format(base, 'plateaus.csv'))

@@ -106,6 +106,15 @@ public class MERGESORT_TEST {
     }
 
 
+    // manual
+
+    @org.junit.Test(timeout = 3000)
+    public void test_23() throws Exception {
+        java.util.ArrayList result = MERGESORT.mergesort(new java.util.ArrayList(java.util.Arrays.asList(1)));
+        String resultFormatted = QuixFixOracleHelper.format(result,true);
+        assertEquals("[1]", resultFormatted);
+    }
+
     // evosuite
 
     @Test(timeout = 4000)
@@ -194,6 +203,13 @@ public class MERGESORT_TEST {
         ArrayList<Integer> arrayList1 = MERGESORT.merge(arrayList0, arrayList0);
         assertEquals(2, arrayList0.size());
         assertFalse(arrayList1.equals((Object)arrayList0));
+    }
+
+    @Test(timeout = 4000)
+    public void test_22()  throws Throwable  {
+        java.util.ArrayList result = MERGESORT.mergesort(new java.util.ArrayList(java.util.Arrays.asList(0, 1, 0)));
+        String resultFormatted = QuixFixOracleHelper.format(result,true);
+        assertEquals("[0,0,1]", resultFormatted);
     }
 }
 

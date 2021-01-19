@@ -1,0 +1,4 @@
+,program,fitness function,mean,std
+0,shortest_path_lengths,arjae,97.36%,1.79%
+1,shortest_path_lengths,decision,88.45%,20.74%
+2,shortest_path_lengths,original,99.64%,0.30%

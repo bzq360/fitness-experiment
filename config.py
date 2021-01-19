@@ -49,9 +49,9 @@ fitness_types = [
 
 # benchmark problems (17 in total, 2 have wrong method files)
 problems = [
-    'depth_first_search', # 79
-    'detect_cycle',  # 350
-    'find_in_sorted', # 117
+    # 'depth_first_search', # 79
+    # 'detect_cycle',  # 350
+    # 'find_in_sorted', # 117
     'get_factors', # 126
      'hanoi',  # wrong method file
     'is_valid_parenthesization', # 91

@@ -14,11 +14,6 @@ import java.util.Map;
  */
 public class LIS {
 
-    public static void log(int cid, String vName, int value) {
-        System.out.println(cid + ", " + vName + ", " + value);
-    }
-
-
     public static int lis(int[] arr) {
         Map<Integer, Integer> ends = new HashMap<Integer, Integer>(100);
         int longest = 0;
