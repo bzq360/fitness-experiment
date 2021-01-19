@@ -44,5 +44,34 @@ public class SQRT_TEST {
         double result = SQRT.sqrt((double)170,(double)0.03);
         org.junit.Assert.assertEquals( (double) 13.038404876679632, result, 0.03);
     }
+//evosuite
+  @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      double double0 = SQRT.sqrt(0.0, 0.0);
+      assertEquals(0.0, double0, 0.01);
+  }
+
+  @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      double double0 = SQRT.sqrt((-212.886885152859), 2552.027723145);
+      assertEquals((-24.072562404396702), double0, 0.01);
+  }
+
+  @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      // Undeclared exception!
+      SQRT.sqrt(185.832, (-2850.166));
+  }
+
+  @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      double double0 = SQRT.sqrt(2552.027723145, 0.0);
+      assertEquals(50.517598152970415, double0, 0.01);
+  }
+
+  @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      SQRT sQRT0 = new SQRT();
+  }
 }
 
