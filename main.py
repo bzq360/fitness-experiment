@@ -5,7 +5,7 @@ import integrate
 from time import perf_counter
 
 # 0. setup resources (comment it if keep resource the same)
-setup.copy_resources()
+# setup.copy_resources()
 
 # 1. execute
 fix.run_fix_cmds()
