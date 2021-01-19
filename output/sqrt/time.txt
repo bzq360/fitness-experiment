@@ -1,0 +1,120 @@
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-428416-579071-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 428416 -is 579071 -rec True -j
+time elapsed: 997.746890137
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-821095-322529-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 821095 -is 322529 -rec True -j
+time elapsed: 1007.807125368
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-734376-821323-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 734376 -is 821323 -rec True -j
+time elapsed: 1028.212424504
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-712445-107205-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 712445 -is 107205 -rec True -j
+time elapsed: 1020.0161084740002
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-653687-662029-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 653687 -is 662029 -rec True -j
+time elapsed: 973.7958580959998
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-80896-972805-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 80896 -is 972805 -rec True -j
+time elapsed: 1051.6843531370005
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-320225-5592-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 320225 -is 5592 -rec True -j
+time elapsed: 994.7047103750001
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-580805-95387-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 580805 -is 95387 -rec True -j
+time elapsed: 983.0836989899999
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-961346-755489-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 961346 -is 755489 -rec True -j
+time elapsed: 962.8800605150009
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-849689-770101-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 849689 -is 770101 -rec True -j
+time elapsed: 1062.8108289400006
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-231667-131681-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 231667 -is 131681 -rec True -j
+time elapsed: 1004.7607527029995
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-976782-176559-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 976782 -is 176559 -rec True -j
+time elapsed: 990.2762117700004
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-701105-671402-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 701105 -is 671402 -rec True -j
+time elapsed: 965.0437008779991
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-289711-661786-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 289711 -is 661786 -rec True -j
+time elapsed: 939.9044852900006
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-865435-791598-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 865435 -is 791598 -rec True -j
+time elapsed: 1265.18424219
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-756546-242818-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 756546 -is 242818 -rec True -j
+time elapsed: 1025.8482106720003
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-182953-900594-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 182953 -is 900594 -rec True -j
+time elapsed: 863.7118298239984
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-54536-43489-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 54536 -is 43489 -rec True -j
+time elapsed: 1008.8667453830021
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-642549-632501-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 642549 -is 632501 -rec True -j
+time elapsed: 1013.5482257900003
+java -Dtinylog.level=info -cp gin.jar gin.util.GPFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/original-sqrt-597966-191395-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 597966 -is 191395 -rec True -j
+time elapsed: 999.7512226479994
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-496480-78042-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 496480 -is 78042 -rec True -j
+time elapsed: 1030.8698889519983
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-89116-345040-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 89116 -is 345040 -rec True -j
+time elapsed: 1002.2540680290003
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-90437-188104-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 90437 -is 188104 -rec True -j
+time elapsed: 951.2843689299989
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-26644-563833-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 26644 -is 563833 -rec True -j
+time elapsed: 981.5991707759968
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-570949-76841-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 570949 -is 76841 -rec True -j
+time elapsed: 994.8099586349999
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-81167-855179-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 81167 -is 855179 -rec True -j
+time elapsed: 1071.5521114310031
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-869469-386083-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 869469 -is 386083 -rec True -j
+time elapsed: 946.4712762220006
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-700662-411964-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 700662 -is 411964 -rec True -j
+time elapsed: 1085.9173033450024
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-17780-337192-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 17780 -is 337192 -rec True -j
+time elapsed: 1006.0696155429978
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-273357-966929-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 273357 -is 966929 -rec True -j
+time elapsed: 1043.7957041970003
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-993797-249201-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 993797 -is 249201 -rec True -j
+time elapsed: 1047.534556038001
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-254681-962963-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 254681 -is 962963 -rec True -j
+time elapsed: 1076.8531513050002
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-399617-49781-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 399617 -is 49781 -rec True -j
+time elapsed: 1077.144796319004
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-876471-361860-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 876471 -is 361860 -rec True -j
+time elapsed: 898.3844754469974
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-414189-150457-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 414189 -is 150457 -rec True -j
+time elapsed: 930.9124740490006
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-7574-214521-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 7574 -is 214521 -rec True -j
+time elapsed: 1098.770461619999
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-104775-141317-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 104775 -is 141317 -rec True -j
+time elapsed: 1095.8604369480017
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-229685-805495-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 229685 -is 805495 -rec True -j
+time elapsed: 978.0065664279973
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-344060-283273-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 344060 -is 283273 -rec True -j
+time elapsed: 1053.8606734299974
+java -Dtinylog.level=info -cp gin.jar gin.util.GPNovelFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/decision-sqrt-130136-476401-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 130136 -is 476401 -rec True -j
+time elapsed: 1084.2049305709952
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-512252-819425-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 512252 -is 819425 -rec True -j
+time elapsed: 1009.276481961002
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-409084-29858-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 409084 -is 29858 -rec True -j
+time elapsed: 974.0332109099982
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-84309-674655-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 84309 -is 674655 -rec True -j
+time elapsed: 1038.8829133399995
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-82296-305915-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 82296 -is 305915 -rec True -j
+time elapsed: 1057.5602190799982
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-339897-898818-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 339897 -is 898818 -rec True -j
+time elapsed: 1004.5264303349977
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-535390-46385-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 535390 -is 46385 -rec True -j
+time elapsed: 1082.1207211650035
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-147534-496178-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 147534 -is 496178 -rec True -j
+time elapsed: 992.6884257840065
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-977701-628569-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 977701 -is 628569 -rec True -j
+time elapsed: 1035.8209236190014
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-674294-523040-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 674294 -is 523040 -rec True -j
+time elapsed: 1051.0656670399985
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-391550-431866-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 391550 -is 431866 -rec True -j
+time elapsed: 1004.1519276809995
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-652475-312288-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 652475 -is 312288 -rec True -j
+time elapsed: 923.9990512990043
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-617831-917804-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 617831 -is 917804 -rec True -j
+time elapsed: 991.528384115998
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-790560-781720-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 790560 -is 781720 -rec True -j
+time elapsed: 981.421740673999
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-222785-467709-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 222785 -is 467709 -rec True -j
+time elapsed: 988.7854421219963
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-437059-418002-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 437059 -is 418002 -rec True -j
+time elapsed: 968.4215606830039
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-134395-438435-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 134395 -is 438435 -rec True -j
+time elapsed: 1179.4347388899987
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-462574-985603-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 462574 -is 985603 -rec True -j
+time elapsed: 999.478968317002
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-823535-572526-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 823535 -is 572526 -rec True -j
+time elapsed: 1000.5243867509998
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-971396-900823-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 971396 -is 900823 -rec True -j
+time elapsed: 910.6199409510009
+java -Dtinylog.level=info -cp gin.jar gin.util.GPArjaEFix -d quixbugs -c quixbugs -gn 10 -in 40 -m quixbugs/quixbugs_method_files/sqrt.csv -o output/2021-01-18_16-24-43/results/arjae-sqrt-491781-369443-False.csv -et STATEMENT,MODIFY_STATEMENT -x 1000 -ms 491781 -is 369443 -rec True -j
+time elapsed: 1064.104716527996
