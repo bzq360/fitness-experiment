@@ -1,7 +1,0 @@
-problem,fitness type,run with evosuite,number of fixed patches found,number of unique fixed patch found,number of fixed patch passed evosuite,number of evaluations to find first fixed patch,minimum number of edits to find a fix,number of better fitness patches,ratio of better fitness patches,number of same fitness patches,ratio of same fitness patches
-quicksort,arjae,False,94.70,70.75,70.45,1,1,94.70,23.62%,23.10,5.76%
-quicksort,decision,False,93.50,67.80,66.10,1,1,93.50,23.32%,23.75,5.92%
-quicksort,original,False,91.10,69.55,69.55,1,1,93.70,23.37%,26.15,6.52%
-rpn_eval,arjae,False,36.85,27.00,22.25,1,1,43.90,10.95%,66.15,16.50%
-rpn_eval,decision,False,14.25,10.80,8.85,39,1,16.05,4.00%,85.65,21.36%
-rpn_eval,original,False,29.80,21.65,16.55,5,1,38.45,9.59%,77.45,19.31%
