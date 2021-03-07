@@ -1,4 +1,0 @@
-problem,fitness type,run with fix,number of all fixed patch,average number of fix patch per run,average ratio of fixed patch is unique,average ratio of unique patch can pass evosuite,number of evaluations to find first fixed patch,minimum number of edits to find a fix,ratio of better fitness patches,ratio of same fitness patches
-sqrt,arjae,3,111,5.55,93.00%,10.62%,212,8,70.97%,2.32%
-sqrt,decision,2,22,1.10,88.10%,0.00%,300,9,67.78%,3.18%
-sqrt,original,5,217,10.85,92.33%,49.40%,34,1,67.61%,3.20%
