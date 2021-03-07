@@ -49,5 +49,51 @@ public class HANOI_TEST {
         String resultFormatted = QuixFixOracleHelper.format(result,true);
         org.junit.Assert.assertEquals("[[3,2],[3,1],[2,1]]", resultFormatted);
     }
+//evosuite
+  @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      List<HANOI.Pair<Integer, Integer>> list0 = HANOI.hanoi(3, 515, (-2928));
+      assertEquals(7, list0.size());
+  }
+
+  @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      HANOI hANOI0 = new HANOI();
+  }
+
+  @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Integer integer0 = new Integer(756);
+      HANOI.Pair<Integer, Integer> hANOI_Pair0 = new HANOI.Pair<Integer, Integer>(integer0, integer0);
+      Integer integer1 = hANOI_Pair0.getFirst();
+      assertEquals(756, (int)integer1);
+  }
+
+  @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      HANOI.Pair<String, String> hANOI_Pair0 = new HANOI.Pair<String, String>(" bjuqKH86b;1;B", " bjuqKH86b;1;B");
+      Object object0 = hANOI_Pair0.getSecond();
+      assertEquals(" bjuqKH86b;1;B", object0);
+  }
+
+  @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      HANOI.Pair<String, String> hANOI_Pair0 = new HANOI.Pair<String, String>(" bjuqKH86b;1;B", " bjuqKH86b;1;B");
+      hANOI_Pair0.setFirst("");
+  }
+
+  @Test(timeout = 4000)
+  public void test12()  throws Throwable  {
+      List<HANOI.Pair<Integer, Integer>> list0 = HANOI.hanoi((-1335), 2555, (-1335));
+      HANOI.Pair<Object, String> hANOI_Pair0 = new HANOI.Pair<Object, String>(list0, "BDwU8uL3$SNvyL[");
+      String string0 = hANOI_Pair0.toString();
+      assertEquals("([], BDwU8uL3$SNvyL[)", string0);
+  }
+
+  @Test(timeout = 4000)
+  public void test13()  throws Throwable  {
+      HANOI.Pair<String, Integer> hANOI_Pair0 = new HANOI.Pair<String, Integer>("", (Integer) null);
+      hANOI_Pair0.setSecond((Integer) null);
+  }
 }
 

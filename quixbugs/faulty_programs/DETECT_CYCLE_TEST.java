@@ -111,9 +111,40 @@ public class DETECT_CYCLE_TEST {
 		assertEquals("Cycle not detected!", resultStr);
 	}
 
+//evosuite
+  @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Node node0 = new Node();
+      Node node1 = new Node("x#7~$nLCJ@2_e", node0);
+      node0.setSuccessor(node1);
+      Node node2 = new Node("!c![?MWjW", node1);
+      node1.setSuccessor(node2);
+      boolean boolean0 = DETECT_CYCLE.detect_cycle(node0);
+      assertTrue(boolean0);
+  }
+
+  @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Node node0 = new Node();
+      Node node1 = new Node("x#7~$nLCJ@2_e", node0);
+      boolean boolean0 = DETECT_CYCLE.detect_cycle(node1);
+      assertFalse(boolean0);
+  }
+
+  @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Node node0 = new Node();
+      boolean boolean0 = DETECT_CYCLE.detect_cycle(node0);
+      assertFalse(boolean0);
+  }
+
+  @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      DETECT_CYCLE dETECT_CYCLE0 = new DETECT_CYCLE();
+  }
 	// manually (bian)
 	@Test
-	public void test6() {
+	public void test10() {
 		Node node1 = new Node("1");
 		Node node2 = new Node("2", node1);
 		Node node3 = new Node("3", node2);

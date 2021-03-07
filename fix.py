@@ -66,7 +66,7 @@ def constr_fix_cmd(fitness_type, problem, mutation_seed, selection_seed, with_ev
         evo=with_evosuite)
 
     # construct cmd
-    cmd = 'java -Dtinylog.level={gp_log} -cp gin.jar {class_name} -d quixbugs -c quixbugs -gn {gen} -in {pop} -m {method} -o {result} -et {edits} -x {timeout} -ms {mut} -is {sel} -rec {rec}'.format(
+    cmd = 'java -Dtinylog.level={gp_log} -cp gin.jar {class_name} -d quixbugs -c quixbugs -gn {gen} -in {pop} -m {method} -o {result} -et {edits} -x {timeout} -ms {mut} -is {sel} -rec {rec} -j'.format(
         gp_log=gp_log[0],
         class_name=gp_class,
         gen=generations,
