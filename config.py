@@ -2,7 +2,7 @@ import random
 from datetime import datetime
 
 # if set to 'now', it will be current time
-timestamp = 'now'
+timestamp = 'all'
 
 # gin project absolute path
 gin_dir = '../gin' #
